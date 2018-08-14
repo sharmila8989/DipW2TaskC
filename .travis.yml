@@ -3,6 +3,10 @@ solution: DipW2TaskC/DipW2TaskC.sln
 install:
   - sudo apt-get install -y gtk-sharp2
   - nuget restore DipW2TaskC/DipW2TaskC.sln
+  - nuget install NUnit.Runners -Version 2.6.4 -OutputDirectory testrunner
+script:
+  - xbuild /p:Configuration=Release DipW2TaskC/DipW2TaskC.sln
+  - mono ./testrunner/NUnit.Runners.2.6.4/tools/nunit-console.exe ./DipW2TaskC.Tests/bin/Release/DipW2TaskC.Tests.dll
 deploy:
  provider: azure_web_apps
  username: AZURE_USERNAME
