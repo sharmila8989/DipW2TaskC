@@ -2,10 +2,10 @@ language: csharp
 solution: DipW2TaskC/DipW2TaskC.sln
 install:
   - sudo apt-get install -y gtk-sharp2
-  - nuget restore DipW2TaskC
+  - nuget restore DipW2TaskC/DipW2TaskC.sln
 deploy:
- skip_cleanup: true
  provider: azure_web_apps
  username: AZURE_USERNAME
  password: AZURE_PASSWORD
  site: https://dipw2taskc.azurewebsites.net
+ skip_cleanup: true
